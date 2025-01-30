@@ -1,0 +1,65 @@
+import time
+from selenium import webdriver
+from selenium.webdriver import ActionChains
+
+drivers=webdriver.Chrome()
+drivers.implicitly_wait(10)
+# drivers.get(r'https://testautomationpractice.blogspot.com/')
+# drivers.get(r'https://demoapps.qspiders.com/ui/clickHold?sublist=0')
+# drivers.get(r'https://demoapps.qspiders.com/ui/mouseHover/tab?sublist=3')
+# drivers.get(r'https://demoapps.qspiders.com/ui/mouseHover/rating?sublist=2')
+# drivers.get(r'https://demoapps.qspiders.com/ui/dragDrop/dragToCorrect?sublist=2')
+# drivers.get(r'https://testautomationpractice.blogspot.com/')
+drivers.get(r'https://demoapps.qspiders.com/ui/dragDrop/axisRestricted?sublist=1')
+drivers.maximize_window()
+time.sleep(2)
+object=ActionChains(drivers)
+'''right click'''
+# element=drivers.find_element('xpath','//*[@id="name"]')
+# object.context_click(element).perform()
+# time.sleep(2)
+'''double click'''
+# element2=drivers.find_element('xpath','//*[@id="post-body-1307673142697428135"]/div[1]/label[1]')
+# object.double_click(element2).perform()
+# time.sleep(2)
+'''click and hold'''
+# element3=drivers.find_element('xpath','//*[@id="circle"]')
+# object.click_and_hold(element3).perform()
+# time.sleep(2)
+'''mouse hover'''
+# kids=drivers.find_element('xpath','//*[@id="demoUI"]/main/section/article/aside/div/aside/div/article/div/div[1]/ul/li[3]')
+# girl_dresses=drivers.find_element('xpath','//*[@id="demoUI"]/main/section/article/aside/div/aside/div/article/div/div[1]/ul/li[3]/section/ul/li[1]')
+# object.move_to_element(kids).move_to_element(girl_dresses).perform()
+# time.sleep(2)
+#ratings
+# star1=drivers.find_element('xpath','//*[@id="demoUI"]/main/section/article/aside/div/aside/div/section[2]/section[1]/div/div[1]/label[1]')
+# star2=drivers.find_element('xpath','//*[@id="demoUI"]/main/section/article/aside/div/aside/div/section[2]/section[1]/div/div[1]/label[2]')
+# star3=drivers.find_element('xpath','//*[@id="demoUI"]/main/section/article/aside/div/aside/div/section[2]/section[1]/div/div[1]/label[3]')
+# star4=drivers.find_element('xpath','//*[@id="demoUI"]/main/section/article/aside/div/aside/div/section[2]/section[1]/div/div[1]/label[4]')
+# star5=drivers.find_element('xpath','//*[@id="demoUI"]/main/section/article/aside/div/aside/div/section[2]/section[1]/div/div[1]/label[5]')
+# object.move_to_element(star1).move_to_element(star2).move_to_element(star3).move_to_element(star4).move_to_element(star5).perform()
+# time.sleep(2)
+'''drag and drop'''
+# source1=drivers.find_element('xpath','//*[@id="demoUI"]/main/section/article/aside/div/aside/div/div/div/section[1]/div[2]/div[1]')
+# source3=drivers.find_element('xpath','//*[@id="demoUI"]/main/section/article/aside/div/aside/div/div/div/section[1]/div[2]/div[2]')
+# source2=drivers.find_element('xpath','//*[@id="demoUI"]/main/section/article/aside/div/aside/div/div/div/section[1]/div[2]/div[3]')
+# source4=drivers.find_element('xpath','//*[@id="demoUI"]/main/section/article/aside/div/aside/div/div/div/section[1]/div[2]/div[4]')
+# target1=drivers.find_element('xpath','//*[@id="demoUI"]/main/section/article/aside/div/aside/div/div/div/section[2]/div[1]')
+# target2=drivers.find_element('xpath','//*[@id="demoUI"]/main/section/article/aside/div/aside/div/div/div/section[2]/div[2]')
+# object.drag_and_drop(source1,target1).drag_and_drop(source2,target1).perform()
+# time.sleep(2)
+# object.drag_and_drop(source3,target2).drag_and_drop(source4,target2).perform()
+# time.sleep(2)
+'''drag and drop sliders'''
+# slider1=drivers.find_element('xpath','//*[@id="slider-range"]/span[1]')
+# slider2=drivers.find_element('xpath','//*[@id="slider-range"]/span[2]')
+# object.drag_and_drop_by_offset(slider1,-75,0).perform()
+# time.sleep(2)
+# object.drag_and_drop_by_offset(slider2,200,0).perform()
+# time.sleep(5)
+##demoapps drag n drop offset
+xaxis=drivers.find_element('xpath','//*[@id="demoUI"]/main/section/article/aside/div/aside/div/div/div/section/div/div[1]')
+yaxis=drivers.find_element('xpath','//*[@id="demoUI"]/main/section/article/aside/div/aside/div/div/div/section/div/div[2]')
+object.drag_and_drop_by_offset(xaxis,90,0).perform()
+object.drag_and_drop_by_offset(yaxis,0,-75).perform()
+time.sleep(4)
